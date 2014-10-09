@@ -473,6 +473,7 @@ var locationPrototype = {
           search = search.toString();
           this.$$search = parseKeyValue(search);
         } else if (isObject(search)) {
+          if (search === this.$$search) return this;
           search = copy(search, {});
           // remove object undefined or null properties
           forEach(search, function(value, key) {
